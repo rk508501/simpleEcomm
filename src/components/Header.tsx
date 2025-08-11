@@ -1,8 +1,8 @@
-import { Link, useLocation } from 'react-router-dom';
-import { ShoppingCart, Store } from 'lucide-react';
-import { Button } from './ui/button';
-import { Badge } from './ui/badge';
-import { useCart } from '@/contexts/CartContext';
+import { Link, useLocation } from "react-router-dom";
+import { ShoppingCart, Store } from "lucide-react";
+import { Button } from "./ui/button";
+import { Badge } from "./ui/badge";
+import { useCart } from "@/contexts/CartContext";
 
 export const Header = () => {
   const location = useLocation();
@@ -20,22 +20,34 @@ export const Header = () => {
         </Link>
 
         <nav className="flex items-center space-x-6">
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className={`text-sm font-medium transition-colors hover:text-primary ${
-              location.pathname === '/' ? 'text-primary' : 'text-muted-foreground'
+              location.pathname === "/"
+                ? "text-primary"
+                : "text-muted-foreground"
             }`}
           >
             Products
           </Link>
-          
+          <Link
+            to="/prices"
+            className={`text-sm font-medium transition-colors hover:text-primary ${
+              location.pathname === "/prices"
+                ? "text-primary"
+                : "text-muted-foreground"
+            }`}
+          >
+            Prices
+          </Link>
+
           <Link to="/cart">
             <Button variant="outline" size="sm" className="relative">
               <ShoppingCart className="h-4 w-4 mr-2" />
               Cart
               {itemCount > 0 && (
-                <Badge 
-                  variant="destructive" 
+                <Badge
+                  variant="destructive"
                   className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs"
                 >
                   {itemCount}
